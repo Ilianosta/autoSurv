@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e0f854ab8ecaf4c9bf76d325ff99cf, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  description: 
+  weaponType:
+    name: Fireball
+    level: 0
+    attackLvlMultiplier: 1
+    attackRateLvlMultiplier: 0.2
+    onHitLvlMultiplier: 0
+    stats:
+      damageBase: 3
+      attackRateBase: 1.5
+      damage: 3
+      attackRate: 0.5
+      onHitEffects: []
