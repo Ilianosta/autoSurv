@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Weapons : MonoBehaviour
 {
     public WeaponsSO weaponSO;
-    protected bool initialized;
+    public bool initialized;
     protected float counter;
     protected WeaponType weaponType;
     protected virtual void Awake()
@@ -13,7 +13,11 @@ public abstract class Weapons : MonoBehaviour
         weaponType = weaponSO.weaponType;
         weaponType.stats.Upgrade(weaponType);
     }
-    public abstract void Initialize();
+    public virtual void Initialize()
+    {
+        counter = weaponType.stats.attackRate;
+        initialized = true;
+    }
     public abstract void Shoot();
     public virtual void LevelUp(int amount = 1)
     {

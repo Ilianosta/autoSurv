@@ -26,6 +26,7 @@ public class Fireball : Weapons
         Rigidbody2D fireballRb = shootedFireball.GetComponent<Rigidbody2D>();
         shootedFireball.SetActive(true);
         float duration = 5;
+        if (direction.magnitude < 0.1f) direction = transform.right;
         while (duration > 0)
         {
             duration -= Time.deltaTime;

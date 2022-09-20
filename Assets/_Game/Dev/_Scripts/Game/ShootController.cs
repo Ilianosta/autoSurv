@@ -9,10 +9,12 @@ public class ShootController : MonoBehaviour
     List<GameObject> weaponsGo = new List<GameObject>();
     public void InitializeWeapons()
     {
-        foreach (Weapons weapon in weapons)
+        for (int i = 0; i < weapons.Count; i++)
         {
-            GameObject _newWeapon = Instantiate(weapon.gameObject, transform);
-            _newWeapon.GetComponent<Weapons>().Initialize();
+            if (weapons[i].initialized) continue;
+            GameObject _newWeapon = Instantiate(weapons[i].gameObject, transform);
+            weapons[i] = _newWeapon.GetComponent<Weapons>();
+            weapons[i].Initialize();
         }
     }
     public void LevelUpWeapon(Weapons weaponToUpgrade, int amount = 1)
@@ -24,7 +26,8 @@ public class ShootController : MonoBehaviour
     }
     void Update()
     {
-        directionObj.position = new Vector3(transform.position.x + PlayerManager.instance.movement.JoystickDirection.x, transform.position.y + PlayerManager.instance.movement.JoystickDirection.y, 0);
+        Vector3 newPos = new Vector3(transform.position.x + PlayerManager.instance.movement.JoystickDirection.x, transform.position.y + PlayerManager.instance.movement.JoystickDirection.y, 0);
+        directionObj.position = newPos;
         if (Input.GetMouseButtonDown(0))
         {
             InitializeWeapons();
